@@ -1,4 +1,4 @@
-function im_out=skin_color_extract(im_in)
+function im_out=skincolorExtract(im_in)
      YCBCR = rgb2ycbcr(im_in);
      Y_MIN = 0;  
      Y_MAX = 255;  
