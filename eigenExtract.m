@@ -1,6 +1,7 @@
 function  eigen=eigenExtract(IM)
 % input: the RGB image of hand gesture
 % output: the eigenvectors of hand gesutre 2*5
+
     IM1=skincolorExtract(IM);
     IM2=im2bw(IM1,graythresh(IM1)); 
     IM3=createPalmMask(IM1, IM2);
