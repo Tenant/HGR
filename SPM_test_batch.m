@@ -1,4 +1,4 @@
-function []=SPM_test(img)
+function []=SPM_test_batch()
 global quantizationTable;
     quantizationTable = linspace(1,1,8);
     for i = 2 : 32
@@ -6,11 +6,15 @@ global quantizationTable;
     end
 
     load SPM;
+    files = dir('*.jpg');
+    for i = 1 : length(files)
+        s = files(i).name;
+        img = imread(s);
         [x,y] = size(img(:,:,1));
         img = changeTo32Level(img, x, y);
         img = detect(img, SPM, x, y);
-        imshow(img);
-%         imwrite(img, 'result.jpg');
+        imwrite(img, [num2str(i),'-result.jpg']);
+    end
 end
 
 
