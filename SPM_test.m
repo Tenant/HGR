@@ -1,4 +1,4 @@
-function []=SPM_test(img)
+function im_out=SPM_test(img)
 global quantizationTable;
     quantizationTable = linspace(1,1,8);
     for i = 2 : 32
@@ -6,11 +6,20 @@ global quantizationTable;
     end
 
     load SPM;
+        origin=img;
         [x,y] = size(img(:,:,1));
         img = changeTo32Level(img, x, y);
-        img = detect(img, SPM, x, y);
-        imshow(img);
-%         imwrite(img, 'result.jpg');
+        mask = detect(img, SPM, x, y);
+        mask=mask>120;
+        for ii=1:x
+            for jj=1:y
+                if(mask(ii,jj)) 
+                    origin(ii, jj, :)=[0 0 255];
+                end
+            end
+        end
+
+        im_out=origin;
 end
 
 

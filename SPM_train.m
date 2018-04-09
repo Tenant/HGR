@@ -1,5 +1,5 @@
 function []=SPM_train()
-%% Skin Probability Map - Offline Training
+
 clear; clc;
 global skinPixels nonskinPixels numTable SPM quantizationTable;
 skinPixels = 0;
