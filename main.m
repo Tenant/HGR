@@ -30,17 +30,27 @@ height=size(bgd, 2);
 Threshold=zeros(width, height)+10; % recommended value: 10
 learning_rate=0.7; % recommended value: 0.7
 
-for ii=1:FramesPerTrigger
+for ii=2:FramesPerTrigger
     im_in=frames(:, :, :, ii);
     [im_out, bgd, Threshold]=bgdSub(im_in, bgd, learning_rate, Threshold);
-    %im_out=im2bw(im_out, graythresh(im_out));
+    im_out=im2bw(im_out, graythresh(im_out));
     figure(); imshow(im_out);
 end
 %}
+%% Skin-color Probability Map - Offline Training
+% SPM_train()
+% SPM_test_batch()
 
+%% Skin-color Probability Map - Online Training
+skinPixels = 0;
+nonskinPixels = 0;
+numTable(2, 1:32, 1:32, 1:32) = 0;
 
+for ii=1:FramesPerTrigger
+    [SPM_on, numTable, skinPixels, nonskinPixels]=SPM_train_online(im_ROI, im_bgd, numTable, skinPixels, nonskinPixels);
+    
+end
 
-    
-    
-    
-%}
+%% Skin color classifier
+
+%% Calculation of Morphologyy Weights
