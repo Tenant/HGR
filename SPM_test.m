@@ -5,11 +5,11 @@ global quantizationTable;
         quantizationTable = [quantizationTable, linspace(i,i,8)];
     end
 
-    load SPM;
+    load SPM_off;
         origin=img;
         [x,y] = size(img(:,:,1));
         img = changeTo32Level(img, x, y);
-        mask = detect(img, SPM, x, y);
+        mask = detect(img, SPM_off, x, y);
         mask=mask>120;
         for ii=1:x
             for jj=1:y
