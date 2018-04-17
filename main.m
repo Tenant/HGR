@@ -1,8 +1,9 @@
 %% Workspace Initialization
 clc; clf; close all; clear all;
-FramesPerTrigger=20;
 
 %% Device Configuration
+%{
+FramesPerTrigger=20;
 vid = videoinput('winvideo', 1, 'YUY2_320x240');
 vid.ReturnedColorspace = 'rgb';
 vid.FramesPerTrigger = FramesPerTrigger;
@@ -10,7 +11,12 @@ vid.TriggerFrameDelay = 5;
 src.FrameRate ='30';
 start(vid);
 [frames, timeStamp]=getdata(vid);
+%}
 
+%% read frames from saved mat
+load wave_hand_data
+frames=wave_to_front_1;
+FramesPerTrigger=35;
 %% Region Extraction
 % Background Image Difference
 threshold=8; % defalut value= 8
@@ -64,7 +70,7 @@ for ii=3:FramesPerTrigger
     % im_bgd=
     
     % figure
-    %{
+    %%{
     figure;
     subplot(1,3,1); imshow(ROI_1);
     subplot(1,3,2); imshow(ROI_2);
