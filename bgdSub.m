@@ -18,9 +18,24 @@ function [im_out, bgd, T]=bgdSub(im_in, bgd0, a, T0)
     im_out=rgb2gray(im_in);
     im_out(~mask)=0;
     
+    % bgd=a*bgd0+(1-a)*im_in;
     bgd=bgd0;
-    bgd(~mask)=a*bgd0(~mask)+(1-a)*im_in(~mask);
+    R=bgd(:,:,1);
+    G=bgd(:,:,2);
+    B=bgd(:,:,3);
+    R(~mask)=a*R(~mask)+(1-a)*im_in(~mask);
+    G(~mask)=a*G(~mask)+(1-a)*im_in(~mask);
+    B(~mask)=a*B(~mask)+(1-a)*im_in(~mask);
+    bgd(:,:,1)=R;
+    bgd(:,:,2)=G;
+    bgd(:,:,3)=B;
     
     T=T0;
+%     maxium=max(Euler(:));
+%     BND=zeros(size(Euler))+maxium; % maxium
+%     TMP=BND-Euler;
     T(~mask)=a*T0(~mask)+5*(1-a)*Euler(~mask);
+    tmp=T>10;
+    T(~tmp)=10;
+
 end
