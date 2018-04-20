@@ -1,4 +1,4 @@
-function [im_diff_filt, im_sub_crop, im_spm_crop] = Region_based_Combination (im_diff, im_sub, im_spm)
+function [im_diff_filt, im_sub_filt, im_spm_filt] = Region_based_Combination (im_diff, im_sub, im_spm)
     %
     % function [mask] = Region_based_Combination (im_diff, im_sub, im_spm)
     %
