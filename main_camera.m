@@ -69,13 +69,13 @@ while ishandle(h1)
     frame_1=frame;
     
     % figure
-    %%{
+    ROI_1=mark(frame, ROI_1);
+    ROI_2=mark(frame,ROI_2);
+    ROI_3=mark(frame,ROI_3);
     subplot(1,3,1); imshow(ROI_1);
     subplot(1,3,2); imshow(ROI_2);
     subplot(1,3,3); imshow(ROI_3);
     drawnow
-    %}
-    
     
 end
 
