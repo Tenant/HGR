@@ -1,0 +1,14 @@
+# Oversized files
+EVK_farVision_*
+EVK_nearVision_*
+
+# 数据文件
+*.mat
+*.mp4
+
+# 图片文件
+*.fig
+*.tif
+
+# IDE生成文件
+*.asv
