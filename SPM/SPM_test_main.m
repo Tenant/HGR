@@ -6,6 +6,7 @@ global quantizationTable;
     end
 
         [x,y] = size(img(:,:,1));
+        img=medfilt_RGB(img,[4,4]);
         img = changeTo32Level(img, x, y);
         mask = detect(img, SPM, x, y,threshold);
         im_out=mask;
