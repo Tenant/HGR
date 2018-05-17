@@ -45,8 +45,8 @@ AmplitudeScaleStepSize = 10;
 AmplitudeScaleMax = 100;
 
 DistanceScaleMin = 0;
-DistanceScaleStepSize = 250;
-DistanceScaleMax = 3000;
+DistanceScaleStepSize = 250; % 250
+DistanceScaleMax = 3000; % 3000
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DO NOT CHANGE ANYTHING BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

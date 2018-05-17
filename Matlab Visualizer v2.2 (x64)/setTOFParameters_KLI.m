@@ -57,7 +57,7 @@ function output = setTOFParameters_KLI(deviceHandle, newTint, newFPS, newFMOD)
     
     % Calculate new Tx_IDLETIME
     FrameIdle = (1/newFPS)*10^3 - NoPhases * (newTint + Treadout) / 10^3; %FrameIdleTime in ms
-    FrameIdle = dec2hex(round(FrameIdle*10^3,0) * FMOD, 8);
+    FrameIdle = dec2hex(round(FrameIdle*10^3) * FMOD, 8); % FrameIdle = dec2hex(round(FrameIdle*10^3,0) * FMOD, 8);
     Tx_IDLETIME0 = hex2dec(FrameIdle(5:8));
     Tx_IDLETIME1 = hex2dec(FrameIdle(1:4));
    
