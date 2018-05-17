@@ -9,6 +9,9 @@ EVK_nearVision_*
 # 图片文件
 *.fig
 *.tif
+*.bmp
+*.jpg
 
 # IDE生成文件
 *.asv
+codegen/
